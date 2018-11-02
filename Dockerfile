@@ -22,5 +22,8 @@ ADD entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh 
 
 ENTRYPOINT  /entrypoint.sh 
+RUN chgrp -R 0 /some/directory && \
+    chmod -R g=u /some/directory
+
 
 EXPOSE 8080
